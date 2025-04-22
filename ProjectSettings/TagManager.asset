@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Ground
+  - Wall
+  - Door
+  - Floor
+  - Counter
+  - Spawn
+  - Furniture
+  - Bed
   layers:
   - Default
   - TransparentFX
