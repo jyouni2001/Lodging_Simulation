@@ -12,6 +12,7 @@ TagManager:
   - Spawn
   - Furniture
   - Bed
+  - Room
   layers:
   - Default
   - TransparentFX

@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 690923067792498683}
   - component: {fileID: 537499656636937045}
+  - component: {fileID: 7005353487388469801}
   m_Layer: 10
   m_Name: WallPv
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &690923067792498683
 Transform:
@@ -54,6 +55,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.1, y: 4.65, z: 4}
   m_Center: {x: 1, y: 2, z: 1}
+--- !u!114 &7005353487388469801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131916258191136379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 0
+  m_AffectedAgents: ffffffff
 --- !u!1001 &3526228091939918327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76,7 +97,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1812413233687455648, guid: 4c96a0996ba107a4c8dc33044cb8bc78, type: 3}
       propertyPath: m_TagString
-      value: Wall
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7363427732956862130, guid: 4c96a0996ba107a4c8dc33044cb8bc78, type: 3}
       propertyPath: m_LocalScale.z
@@ -136,7 +157,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1812413233687455648, guid: 4c96a0996ba107a4c8dc33044cb8bc78, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8450438059241016424}
+      addedObject: {fileID: 2328309897385843210}
+    - targetCorrespondingSourceObject: {fileID: 1812413233687455648, guid: 4c96a0996ba107a4c8dc33044cb8bc78, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4199307107512129432}
   m_SourcePrefab: {fileID: 100100000, guid: 4c96a0996ba107a4c8dc33044cb8bc78, type: 3}
 --- !u!4 &2486692138005114093 stripped
 Transform:
@@ -148,7 +172,27 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1812413233687455648, guid: 4c96a0996ba107a4c8dc33044cb8bc78, type: 3}
   m_PrefabInstance: {fileID: 3526228091939918327}
   m_PrefabAsset: {fileID: 0}
---- !u!208 &8450438059241016424
+--- !u!114 &2328309897385843210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3011027984036230743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 0
+  m_AffectedAgents: ffffffff
+--- !u!208 &4199307107512129432
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
