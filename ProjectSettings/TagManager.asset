@@ -5,14 +5,13 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ground
-  - Wall
-  - Door
   - Floor
+  - Bed
+  - Door
+  - Wall
+  - Room
   - Counter
   - Spawn
-  - Furniture
-  - Bed
-  - Room
   layers:
   - Default
   - TransparentFX
@@ -27,7 +26,7 @@ TagManager:
   - Wall
   - Furniture
   - Floor
-  - 
+  - Deco
   - 
   - 
   - 
