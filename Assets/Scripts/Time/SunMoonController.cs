@@ -43,7 +43,7 @@ public class SunMoonController : MonoBehaviour
     private TimeSystem timeSystem;
     private float targetSunAngle;
     private float targetMoonAngle;
-    private float currentSunAngle;
+    [SerializeField] private float currentSunAngle;
     [SerializeField] private float currentMoonAngle;
 
     #endregion
@@ -104,8 +104,8 @@ public class SunMoonController : MonoBehaviour
         UpdateCelestialBodies(timeSystem.CurrentHour, timeSystem.CurrentMinute);
         
         // 초기 각도 동기화
-        currentSunAngle = targetSunAngle;
-        currentMoonAngle = targetMoonAngle;
+        currentSunAngle = NormalizeAngle(targetSunAngle);
+        currentMoonAngle = NormalizeAngle(targetMoonAngle);
         
         // 렌즈플레어 초기화 (아침 시작 전제)
         moonLensFlare.intensity = 0f;
@@ -174,12 +174,12 @@ public class SunMoonController : MonoBehaviour
         // 디버그 정보 출력
         if (showDebugInfo)
         {
-            Debug.Log($"시간: {hour:00}:{minute:00} | 해 각도: {targetSunAngle:F1}° | 달 각도: {targetMoonAngle:F1}°");
+            Debug.Log($"시간: {hour:00}:{minute:00} | 해 각도: {currentSunAngle:F1}°/{targetSunAngle:F1}° | 달 각도: {currentMoonAngle:F1}°/{targetMoonAngle:F1}°");
         }
     }
 
     /// <summary>
-    /// 부드러운 회전 업데이트
+    /// 부드러운 회전 업데이트 - 수정된 버전
     /// </summary>
     private void UpdateSmoothRotation()
     {
@@ -188,6 +188,8 @@ public class SunMoonController : MonoBehaviour
         if (Mathf.Abs(sunAngleDiff) > 0.1f)
         {
             currentSunAngle += sunAngleDiff * rotationSpeed * Time.deltaTime;
+            // 각도 정규화 추가
+            currentSunAngle = NormalizeAngle(currentSunAngle);
         }
         else
         {
@@ -199,6 +201,8 @@ public class SunMoonController : MonoBehaviour
         if (Mathf.Abs(moonAngleDiff) > 0.1f)
         {
             currentMoonAngle += moonAngleDiff * rotationSpeed * Time.deltaTime;
+            // 각도 정규화 추가
+            currentMoonAngle = NormalizeAngle(currentMoonAngle);
         }
         else
         {
@@ -279,8 +283,9 @@ public class SunMoonController : MonoBehaviour
         {
             // 달이 지평선 위에 있을 때만 빛을 켬
             bool moonVisible = currentMoonAngle > -180f && currentMoonAngle < 180f;
-            //moonLight.enabled = moonVisible;
-            
+            // Debug.Log($"현재 달 각도 : {currentMoonAngle}");
+            // moonLight.enabled = moonVisible;
+
             if (moonVisible)
             {
                 moonLight.intensity = moonIntensityCurve.Evaluate(moonHeight) * maxMoonIntensity;
@@ -372,8 +377,8 @@ public class SunMoonController : MonoBehaviour
     public void SetImmediatePosition(int hour, int minute)
     {
         UpdateCelestialBodies(hour, minute);
-        currentSunAngle = targetSunAngle;
-        currentMoonAngle = targetMoonAngle;
+        currentSunAngle = NormalizeAngle(targetSunAngle);
+        currentMoonAngle = NormalizeAngle(targetMoonAngle);
         ApplyRotation();
     }
 
